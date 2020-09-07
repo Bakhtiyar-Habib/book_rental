@@ -648,6 +648,27 @@ hr {
 }
 
 
+/*********Address & Map***********/
+.location{
+  height: 550px;
+}
+.location .address{
+  float: left;
+  margin: 220px 0 0 200px;
+}
+
+.location address{
+  font-style: italic;
+  font-size: 16px;
+}
+
+.location .map{
+  float: right;
+  margin: 80px 220px 0 0;
+  margin-bottom: 20px;
+}
+
+
 
 
 

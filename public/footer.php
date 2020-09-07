@@ -28,7 +28,8 @@
       <section id="address" class="col-xs-12 col-sm-12 col-md-4">
         <span>Contact:</span><br>
         <p>Email: bookrental@gmail.com
-        Phone: +88 01711 111 111</p>
+        Phone: +88 01711 111 111   
+        <a href="location.php">  View Location</a></p>
         <hr class="d-block d-sm-none">
       </section>
       <section id="social" class="col-xs-12 col-sm-12 col-md-4">
