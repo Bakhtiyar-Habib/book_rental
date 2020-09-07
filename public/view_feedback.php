@@ -18,6 +18,17 @@
 
   </section>
 
+<div class="container text-center">
+        <table border="2" align="center" class="table1 col-xs-10 col-sm-10 col-md-8"">
+
+
+        <tr>
+
+        <th class="text-center"> User ID </th>
+        <th class="text-center pad"> Feedback </th>
+        </tr>
+
+
 
   <?php
                       $query = "SELECT * FROM feedback WHERE book_id = ". escape_string($_GET["id"]) ." ";
@@ -25,16 +36,21 @@
 
                       while($row = mysqli_fetch_array($send_query)){ ?>
 
-                        <div class="container">
-                          <?php
-                            echo "<p>{$row['feedback']}</p>";
-                            ?>
-                        </div>
 
+                      <tr>
 
-                        
-<?php
+                        <td class="text-center"><?php echo $row["user_id"];?> </td>
+                        <td class="text-center pad"><?php echo $row["feedback"];?> </td>
+                        </tr>
+                        <?php 
                       }
+                        ?>
+                        </table>
+                    </div>
+  
+<div class="gap"></div>
+
+
 
 
 

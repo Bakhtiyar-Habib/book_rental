@@ -22,13 +22,16 @@
       <section id="hours" class="col-xs-12 col-sm-12 col-md-4">
         <span>Hours:</span><br>
         <p>Sun-Thurs: 10:00am - 6.00pm
+          <br class=".d-block .d-sm-none">
         Dhaka, Bangladesh</p>
         <hr class="d-block d-sm-none">
       </section>
       <section id="address" class="col-xs-12 col-sm-12 col-md-4">
         <span>Contact:</span><br>
         <p>Email: bookrental@gmail.com
-        Phone: +88 01711 111 111   
+          <br class=".d-block .d-sm-none">
+        Phone: +88 01711 111 111
+        <br class=".d-block .d-sm-none">   
         <a href="location.php">  View Location</a></p>
         <hr class="d-block d-sm-none">
       </section>

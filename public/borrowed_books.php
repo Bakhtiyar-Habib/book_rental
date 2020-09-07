@@ -19,10 +19,28 @@
 
       if ($result->num_rows > 0) {
       // output data of each row
-      while($row = $result->fetch_assoc()) {
-        $user_id =  $row['user_id']; //returns id
+        while($row = $result->fetch_assoc()) {
+          $user_id =  $row['user_id']; //returns id
+        }
       }
-      }
+
+      //selecting the order_id based on user_id
+      $query = "SELECT * FROM orders WHERE user_id = $user_id";
+      $send_query = mysqli_query($connection, $query);
+
+      while($row = mysqli_fetch_array($send_query)){
+          $order_id =  $row['order_id'];
+        }
+
+      //selecting the book_id based on order_id
+      $query = "SELECT * FROM order_books WHERE order_id = $order_id";
+      $send_query = mysqli_query($connection, $query);
+
+      while($row = mysqli_fetch_array($send_query)){
+          $book_id =  $row['book_id'];
+        }
+
+
 ?>
       
         
@@ -35,7 +53,7 @@
           <div class="col-md-1"></div>
             <div class="col-sm-10 col-lg-10 col-md-10">
                <div class="user-heading">
-                 <h2>Your Book Collection</h2>
+                 <h2>Your Borrowed Books</h2>
                </div>
               <div class="col-md-1"></div>
             </div>
@@ -45,7 +63,7 @@
   </section>
 
       <div class="container text-center">
-        <table border="2" align="center" class="table1 col-xs-10 col-sm-10 col-md-8">
+        <table border="2" align="center" class="table1 col-xs-10 col-sm-10 col-md-8"">
 
 
         <tr>
@@ -60,7 +78,7 @@
 
        <?php
       //selecting the currently logged in users books that s/he uploaded
-      $query = "SELECT * FROM book WHERE user_id = $user_id ";
+      $query = "SELECT * FROM book WHERE book_id = $book_id ";
       $send_query = mysqli_query($connection, $query);
 
       while($row = mysqli_fetch_array($send_query)){    
@@ -93,7 +111,3 @@
         
         
   <?php include_once('footer.php');?>
-
-
-</body>
-</html>

@@ -571,6 +571,7 @@ hr {
 }
 
 .card {
+
     position: relative;
     display: flex;
     flex-direction: column;
@@ -587,6 +588,12 @@ hr {
     flex: 1 1 auto;
     min-height: 1px;
     padding: 1rem;
+    background-color: #F9F9F9;
+}
+
+.card-body label {
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
 .gutters-sm {

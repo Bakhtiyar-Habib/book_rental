@@ -21,10 +21,10 @@
                    echo "</div>";
                    echo "<div class=\"cart-button\">";
                      
-                       echo "<a class=\"text-center btn btn-default\" href='cart.php?add={$row['book_id']}' role=\"button\">Add To Cart</a>";
+                       echo "<a class=\" btn btn-default\" href='cart.php?add={$row['book_id']}' role=\"button\">Add To Cart</a>";
                    echo "</div>";
 
-                  echo "<a class=\"text-center btn btn-default\" href='view_feedback.php?id={$row['book_id']}'>View Feedbacks</a>";
+                  echo "<a class=\"pull-left \" href='view_feedback.php?id={$row['book_id']}'><b>View Feedbacks</b></a>";
 
                  echo "</div>";
                           }
