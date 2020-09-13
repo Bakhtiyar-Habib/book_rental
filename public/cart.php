@@ -154,6 +154,7 @@ if(!isset($_SESSION['username'])){
           <a class="btn cash-pay-button btn-default" href="#" role="button">Cash On Delivery</a>
 
             <a class="btn bkash-button btn-default" href="checkout.php?price=<?php echo $total ?>" role="button">Checkout</a>
+            <div class="gap"></div>
     
     </section>
 

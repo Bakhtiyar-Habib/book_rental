@@ -1,5 +1,23 @@
 <?php require_once("../resources/config.php");
       include_once('header.php');
+
+
+      $username = $_SESSION['username']; //storing the username of currently logged in user in the variable $username
+
+      //Here, i am trying to match the username with the currently logged in user 
+      //Then i am asking for the user_id for that particular user so that i can store it as a foreign key in book table.
+      //This will help me to identify who is the owner of the book.
+      $query = "SELECT user_id FROM user WHERE username='$username'";
+      $result = mysqli_query($connection, $query);
+
+      if ($result->num_rows > 0) {
+      // output data of each row
+        while($row = $result->fetch_assoc()) {
+          $user_id =  $row['user_id']; //returns id
+        }
+      }
+
+
 ?>
 
 
@@ -19,12 +37,23 @@
                           
                         
                    echo "</div>";
-                   echo "<div class=\"cart-button\">";
-                     
+
+
+
+                    $query1 = "SELECT * FROM order_books WHERE book_id = ". escape_string($_GET["id"]) ." ";
+                    $send_query1 = mysqli_query($connection, $query1);
+
+                    if ($send_query1->num_rows > 0) {
+                       echo "This book is already borrowed";
+
+                    }
+                    else { 
+                    echo "<div class=\"cart-button\">";                           
                        echo "<a class=\" btn btn-default\" href='cart.php?add={$row['book_id']}' role=\"button\">Add To Cart</a>";
                    echo "</div>";
+                 }
 
-                  echo "<a class=\"pull-left \" href='view_feedback.php?id={$row['book_id']}'><b>View Feedbacks</b></a>";
+                  echo "<a class=\"text-center  view-feedback gap \" href='view_feedback.php?id={$row['book_id']}'><b>View Feedbacks</b></a>";
 
                  echo "</div>";
                           }

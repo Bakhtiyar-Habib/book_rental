@@ -79,9 +79,6 @@ include_once('header.php');
                     <a class="list-group-item list-group-item-action" href="book_collection.php">
                       My Book Collection
                     </a>
-                    <a class="list-group-item list-group-item-action"  href="profile.php" role="tab">
-                      Edit Profile
-                    </a>
                     <a class="list-group-item list-group-item-action" href="borrowed_books.php" role="tab">
                       Books Borrowed
                     </a>

@@ -24,9 +24,26 @@
         }
       }
 
+       $book_id_data = array();
 
+      //selecting the order_id based on user_id
+      $query = "SELECT * FROM orders WHERE user_id = $user_id";
+      $send_query = mysqli_query($connection, $query);
 
-      
+      while($row = mysqli_fetch_array($send_query)){
+          $order_id =  $row['order_id'];
+        }
+
+      //selecting the book_id based on order_id
+      $query = "SELECT * FROM order_books WHERE order_id = $order_id";
+      $send_query = mysqli_query($connection, $query);
+
+      while($row = mysqli_fetch_array($send_query)){
+          $book_id_array = array(
+                              'book_id' => $row['book_id'],
+                              );
+          $book_id_data[] = $book_id_array;
+        }
 
 
 ?>
@@ -61,31 +78,19 @@
         <th class="text-center pad"> Price </th>
         <th class="text-center pad"> Author </th>
         <th class="text-center pad"> ISBN </th>
+        <th class="text-center pad"> Delete </th>
         </tr>
 
        <?php
 
+      
 
-    //selecting the order_id based on user_id
-      $query = "SELECT * FROM orders WHERE user_id = $user_id";
+      foreach($book_id_data as $keys => $values) {
+      
+      $query = "SELECT * FROM book WHERE book_id IN ($keys)";
       $send_query = mysqli_query($connection, $query);
 
-      while($row = mysqli_fetch_array($send_query)){
-          $order_id =  $row['order_id'];
-          //selecting the book_id based on order_id
-          $query1 = "SELECT * FROM order_books WHERE order_id = $order_id";
-          $send_query1 = mysqli_query($connection, $query1);
-
-          while($row = mysqli_fetch_array($send_query1)){
-              $book_id =  $row['book_id'];
-              
-               //selecting the currently logged in users books that s/he uploaded
-                $query2 = "SELECT * FROM book WHERE book_id = $book_id ";
-                $send_query2 = mysqli_query($connection, $query2);
-
-                while($row = mysqli_fetch_array($send_query2)){   
-       
-      
+      while($row = mysqli_fetch_array($send_query)){    
 ?>
       
         <tr>
@@ -95,12 +100,13 @@
         <td class="text-center pad"><?php echo $row["book_price"];?> </td>
         <td class="text-center pad"><?php echo $row["author"];?> </td>
         <td class="text-center pad"><?php echo $row["ISBN"];?> </td>
+        <td class="text-center pad"> <a href="deletebooks_process.php?id=<?php echo $row["book_id"]; ?>">Delete</a> </button></td>
         </tr>
         <?php
-              }
-        }  
         
       }
+
+    }
      
         ?>
         </table>

@@ -25,10 +25,17 @@
                     <!-- form card register -->
                     <div class="card card-outline-secondary">
                         <div class="card-body">
-                            <form class="form" role="form" action="add_books_process.php" method="post" enctype="multipart/form-data">
+                            <form class="form" role="form" action="signin_process.php" method="post" enctype="multipart/form-data">
+
+                                <div id="message1">
+                                  <h5>Username:</h5>
+                                  <p id="capital2" class="invalid">Cannot have a <b>capital (uppercase)</b> letter</p>
+                                  <p id="length2" class="invalid">Must have minimum <b>6 characters</b></p>
+                                </div>
+
                                 <div class="form-group">
                                     <label for="inputName">Username</label>
-                                    <input type="text" class="form-control" name="username" value="<?php echo $username; ?>">
+                                    <input type="text" class="form-control" id="username" name="username" value="<?php echo $username; ?>" required>
                                 </div>
                                 
                                 <div class="form-group">
@@ -39,14 +46,24 @@
                                     <label for="inputName">Email</label>
                                     <input class="form-control" type="email" name="email" value="<?php echo $email; ?>">
                                 </div>
+
+                                <div id="message2">
+                                  <h5>Password must contain the following:</h5>
+                                  <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                                  <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                                  <p id="number1" class="invalid">A <b>number</b></p>
+                                  <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+                                </div>
+
                                 <div class="form-group">
                                     <label for="inputName">Password</label>
-                                    <input class="form-control" type="password" name="password_1">
+                                    <input class="form-control" type="password" id="password_1" name="password_1" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputName">Confirm Password</label>
                                     <input class="form-control" type="password" name="password_2">
                                 </div>
+
                                 <div class="form-group">
                                     <label for="inputName">City</label>
                                     <input class="form-control" type="text" name="city">
@@ -55,9 +72,15 @@
                                     <label for="inputName">Address</label>
                                     <input class="form-control" type="text" name="address">
                                 </div>
+
+                                <div id="message3">
+                                  <h5>Number:</h5>
+                                  <p id="length3" class="invalid">Enter a valid phone number <b>(11 digits)</b></p>
+                                </div>
+
                                 <div class="form-group">
                                     <label for="inputName">Phone number</label>
-                                    <input class="form-control" type="text" name="number">
+                                    <input class="form-control" type="text" id="number" name="number" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputName">Profile Photo</label>
@@ -78,6 +101,9 @@
                 </div>
 
                 <div class="gap"></div>
+
+
+
 
 
         

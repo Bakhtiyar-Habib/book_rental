@@ -1,4 +1,6 @@
+
 <?php require_once("../resources/config.php"); 
+ include_once('header.php');
 $_SESSION['status'] = $_GET['status'];
 
 if($_SESSION['status'] == 1){
@@ -21,7 +23,7 @@ if($_SESSION['status'] == 1){
 
 	if (mysqli_query($connection, $sql))
 	{
-	  echo "<br> New record created successfully";
+	  echo "<br> Book added to borrowed books list";
 	}
 	else
 	{
@@ -60,7 +62,7 @@ if($_SESSION['status'] == 1){
 
 	   if (mysqli_query($connection, $sqli))
 	   {
-		 echo "<br> New record created successfully :D";
+		 echo "";
 	   }
 	   else
 	   {

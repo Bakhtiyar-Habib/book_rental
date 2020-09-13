@@ -44,5 +44,9 @@
     <div class="text-center">&copy; Book Rental System 2020</div>
   </div>
 </footer>
+
+
+<script src="js/script.js"></script>
+
 </body>
 </html>

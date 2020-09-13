@@ -31,6 +31,13 @@
 			array_push($errors, "The two passwords do not match"); //add errors to errors array
 		}
 
+		 $query1 = "SELECT * FROM user WHERE username = '$username'";
+		 $result1 = mysqli_query($connection, $query1);
+		 if ($result1->num_rows > 0) {
+		    echo"<h2>Username already exists, Please try again with different username</h2>";
+		    array_push($errors, "Username already exists, Please try again with different username");
+		   } 
+
 		//if there are no errors, save user to database
 		if(count($errors) == 0){
 			$password = md5($password_1); // encrypt password before storing in database (security) 
@@ -79,5 +86,7 @@
 		unset($_SESSION['username']);
 		header('location: login.php');
 	}
+
+
 
 ?>
