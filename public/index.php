@@ -38,16 +38,16 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-       $("#search").keyup(function(){
+       $("#search").keyup(function(){ //Triggers the keyup event
           var query = $(this).val();
           if (query != "") {
             $.ajax({
-              url: 'ajax_search.php',
+              url: 'ajax_search.php', //url of the page request is sent to
               method: 'POST',
-              data: {query:query},
-              success: function(data){
+              data: {query:query}, // data to be sent to the server
+              success: function(data){ //function to be run when the request succeeds
  
-                $('#output').html(data);
+                $('#output').html(data); //Sets or returns the content of selected elements
                 $('#output').css('display', 'block');
  
                 $("#search").focusout(function(){
@@ -76,7 +76,6 @@
   <hr class="mt-2 mb-5">
 
   <div class="row text-center text-lg-left">
-  <div id="output"></div>
   <?php require_once("ajax_search.php"); 
     ?>
 

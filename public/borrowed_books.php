@@ -61,6 +61,7 @@
         <th class="text-center pad"> Price </th>
         <th class="text-center pad"> Author </th>
         <th class="text-center pad"> ISBN </th>
+        <th class="text-center pad"> Return Book </th>
         </tr>
 
        <?php
@@ -95,6 +96,7 @@
         <td class="text-center pad"><?php echo $row["book_price"];?> </td>
         <td class="text-center pad"><?php echo $row["author"];?> </td>
         <td class="text-center pad"><?php echo $row["ISBN"];?> </td>
+        <td class="text-center pad"> <a href="returnbooks_process.php?id=<?php echo $row["book_id"]; ?>">Return</a> </button></td>
         </tr>
         <?php
               }

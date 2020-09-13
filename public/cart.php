@@ -5,83 +5,29 @@ if(!isset($_SESSION['username'])){
     include_once('header.php');
 //echo $_SESSION['total_price'];
 ?>
-   <section class="user-section">
+   <section class="payment-section">
         <!----------------------------------Page Heading----------------------------------->
-      <div class="container">  
         <div class="row">
-          <div class="col-md-1"></div>
-            <div class="col-sm-10 col-lg-10 col-md-10">
-               <div class="user-heading">
-                 <h2>My Cart</h2>
+            <div class="col-sm-12 col-xl-12 col-lg-12 col-md-12">
+               <div class="cart-heading">
+                 <h1>My Cart</h1>
                </div>
-              <div class="col-md-1"></div>
             </div>
         </div>
-      </div>
-  </section>
        <!----------------------------------Item Info Table----------------------------------->
        <div class="row">
-        <div class="col-xl-12 col-md-12 col-sm-12 col-xs-10 mx-auto">
-
-                     
+        <div class="col-xl-12 col-md-12 col-sm-12">
         <table class="payment-info-table">
         <tr>
                         <th>Item</th>
                         <th>Price</th>
                         <th>Quantity</th>
-                        <th>Remove</th>
                         </tr>
 
            <?php
  
                 if(isset($_GET['add'])){
-                    {
-                       if(isset($_COOKIE[$_SESSION['username']]))
-                        {
-                         $cookie_data = stripslashes($_COOKIE[$_SESSION['username']]);
-                       
-                         $cart_data = json_decode($cookie_data, true);
-                        }
-                        else
-                        {
-                         $cart_data = array();
-                        }
-                       
-                        $book_id_list = array_column($cart_data, 'book_id');
-                       
-                        if(in_array($_GET["add"], $book_id_list))
-                        {
-                         foreach($cart_data as $keys => $values)
-                         {
-                          if($cart_data[$keys]["book_id"] == $_GET["add"])
-                          {
-                            echo "item already added";
-                          }
-                         }
-                        }
-                        else
-                        {
-                       
-                            $query = "SELECT * FROM book WHERE book_id=". escape_string($_GET["add"]) ." ";
-                            $send_query = mysqli_query($connection, $query);
-
-                            while($row = mysqli_fetch_array($send_query)){
-
-                                $book_array = array(
-                                    'book_id'   => $row['book_id'],
-                                    'book_name'   => $row['book_title'],
-                                    'book_price'  => $row['book_price'],
-                                    
-                                );
-                                $cart_data[] = $book_array;
-                            }
-                    $book_data = json_encode($cart_data);
-    
-                    setcookie($_SESSION['username'], $book_data, time() + (86400 * 30));
-                    header("location:cart.php?success=1");
-                  
-                    
-                }}
+                    add_to_cart($_GET['add']);
             }
     
                
@@ -127,7 +73,7 @@ if(!isset($_SESSION['username'])){
 
             $_SESSION['cart_data'] = $cart_data;
             $_SESSION['cookie'] = $cart_data;
-            $_SESSION['total_amount'] = $total;
+            $_SESSION['total'] = $total;
        }
        } ?>
            
@@ -139,8 +85,12 @@ if(!isset($_SESSION['username'])){
                 <td colspan="3">Total</td>
                 <td>
                 <?php
-                        $_SESSION['total_amount'] += 50; 
-                      echo $_SESSION['total_amount'] ;
+                      if($_SESSION['total']==0){
+                          echo $_SESSION['total'];
+                      }else{
+                        $_SESSION['total'] += 50; 
+                      echo $_SESSION['total'] ;
+                      }
                      ?>
                 </td>
             </tr>
@@ -151,11 +101,12 @@ if(!isset($_SESSION['username'])){
 
 
      <!----------------------------------Payment Buttons----------------------------------->
-          <a class="btn cash-pay-button btn-default" href="#" role="button">Cash On Delivery</a>
-
-            <a class="btn bkash-button btn-default" href="checkout.php?price=<?php echo $total ?>" role="button">Checkout</a>
-            <div class="gap"></div>
-    
+          <div class="cash-pay-button">
+            <a class="btn btn-default" href="#" role="button">Cash On Delivery</a>
+          </div>
+          <div class="bkash-button">
+            <a class="btn btn-default" href="checkout.php?price=<?php echo $_SESSION['total'] ?>" role="button">Checkout</a>
+          </div>
     </section>
 
 <?php include_once('footer.php');?>

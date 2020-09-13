@@ -52,9 +52,8 @@ if ($result->num_rows > 0) {
     echo "Error: " . $sql . "<br>" . mysqli_error($connection);
   }
 
-		
+    
 ?>
-
 
      <!----------------------------------Footer----------------------------------->
 
