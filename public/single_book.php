@@ -8,7 +8,7 @@
         <div class="container">
             <div class="row">
                <!----------------------------------Image and Cart Button----------------------------------->
-                <div class="col-xl-6 col-md-6 col-sm-12 mx-auto">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 mx-auto">
                    <div class="single-book-img mx-auto">
                    <?php
                            $send_query=book_query($_GET["id"]);
@@ -33,18 +33,19 @@
                       echo "</div>";
                      }
                      else{
-                      echo "<div class=\"cart-button\">";
+                      echo "<div class=\"cart-button \">";
                        echo "<a class=\" btn btn-default\" href='cart.php?add={$row['book_id']}' role=\"button\">Add To Cart</a>";
                    echo "</div>";
                      }
-                  echo "<a class=\"pull-left \" href='view_feedback.php?id={$row['book_id']}'><b>View Feedbacks</b></a>";
+                  echo "<a class=\"view-feedback\" href='view_feedback.php?id={$row['book_id']}'><b>View Feedbacks</b></a>";
 
                  echo "</div>";
                           }
+
                 ?>
 
                 <!----------------------------------Book Details----------------------------------->
-                <div class="col-xl-6 col-md-6 col-sm-12">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                   <div class="book-info text-center">
                   <?php
                            $send_query=book_query($_GET["id"]);

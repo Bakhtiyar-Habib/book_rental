@@ -76,7 +76,7 @@ h1, h2, h3, h4 {
 .cart-button{
      background-color: #ee584d;
      text-align: center;
-     width: 20rem;
+     width: 18rem;
      margin: 1rem 2rem 2rem 2rem;
      color: #fff;
 }
@@ -345,6 +345,8 @@ h1, h2, h3, h4 {
   text-align: center;
   font-family: arial;
 }
+
+
 
 
 
@@ -783,4 +785,17 @@ hr {
     font-size: 1em;
 }
 
+.single-book-img img{
+    width: 16rem;
+    height: 12rem;
+    margin-left: 25px;
+    margin-right: auto;
+}
 
+.cart-button{
+     background-color: #ee584d;
+     text-align: center;
+     width: 15rem;
+     margin: 1rem 2rem 2rem 2rem;
+     color: #fff;
+}

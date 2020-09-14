@@ -44,8 +44,8 @@
        <!----------------------------------Homepage Button and User Options----------------------------------->
   </section>
 
-      <div class="container text-center">
-        <table border="2" align="center" class="table1 col-xs-10 col-sm-10 col-md-8">
+      <div class="container text-center col-xs-6 col-sm-6 col-md-8">
+        <table border="2" align="center" class="table1 col-xs-6 col-sm-6 col-md-10">
 
 
         <tr>
