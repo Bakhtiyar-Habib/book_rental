@@ -109,9 +109,8 @@ if(!isset($_SESSION['username'])){
 
 
      <!----------------------------------Payment Buttons----------------------------------->
-          <div class="cash-pay-button">
-            <a class="btn btn-default" href="#" role="button">Cash On Delivery</a>
-          </div>
+          <div class="gap"></div>
+
           <div class="bkash-button">
             <a class="btn btn-default" href="checkout.php?price=<?php echo $_SESSION['total'] ?>" role="button">Checkout</a>
           </div>

@@ -57,7 +57,6 @@
         <tr>
 
         <th class="text-center pad"> Title </th>
-        <th class="text-center pad"> Genre </th>
         <th class="text-center pad"> Price </th>
         <th class="text-center pad"> Author </th>
         <th class="text-center pad"> ISBN </th>
@@ -92,7 +91,6 @@
         <tr>
 
         <td class="text-center pad"><?php echo $row["book_title"];?> </td>
-        <td class="text-center pad"><?php echo $row["genre_id"];?> </td>
         <td class="text-center pad"><?php echo $row["book_price"];?> </td>
         <td class="text-center pad"><?php echo $row["author"];?> </td>
         <td class="text-center pad"><?php echo $row["ISBN"];?> </td>

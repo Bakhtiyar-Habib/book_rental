@@ -44,6 +44,7 @@
 			$sql = "INSERT INTO user (full_name, username, email, password, address, number, profile_image)
 					VALUES ('$full_name', '$username', '$email', '$password', '$address', '$number', '{$profile_image}')";
 			mysqli_query($connection, $sql);
+			$_SESSION['loggedin'] = true;
 			$_SESSION['username'] = $username;
 			$_SESSION['success'] = "You are now logged in";
 			header('location: index.php'); // redirect to home page
@@ -68,6 +69,7 @@
         $result = mysqli_query($connection, $query);
         if (mysqli_num_rows($result) == 1){
             // log user in
+            $_SESSION['loggedin'] = true;
             $_SESSION['username'] = $username;
             $_SESSION['success'] = "You are now logged in";
             $_SESSION['email'] = $email;

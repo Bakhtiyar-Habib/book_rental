@@ -59,11 +59,12 @@
                             echo "<h6>ISBN:   &nbsp &nbsp{$row['ISBN']}</h6>";
                             echo "<h6>Author:   &nbsp &nbsp{$row['author']}</h6>";
                             echo "<h6>Price:   &nbsp &nbspTK.{$row['book_price']}</h6>";
+                            if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
                             if($row['user_id']!=get_user_id_session($_SESSION['username'])){
                               
                             echo "<a href='feedback.php?id={$row['book_id']}' class=\"d-block mb-4 h-100 text-center\">"; ?> Write a Feedback </a>
                           <?php  
-                          }}
+                          }}}
                           ?>
                   </div>
                 </div>
