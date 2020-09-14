@@ -47,6 +47,9 @@
                       </li>
                <?php }else{ ?>
                         <li class="nav-item">
+                          <a class="nav-link" href="index.php">Home</a>
+                        </li>
+                        <li class="nav-item">
                           <a class="nav-link" href="book_genre_list.php">Browse Books</a>
                         </li>
                         <li class="nav-item">

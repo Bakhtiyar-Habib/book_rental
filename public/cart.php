@@ -7,13 +7,21 @@ if(!isset($_SESSION['username'])){
 ?>
    <section class="payment-section">
         <!----------------------------------Page Heading----------------------------------->
+    <section class="user-section">
+        <!----------------------------------Page Heading----------------------------------->
+      <div class="container">  
         <div class="row">
-            <div class="col-sm-12 col-xl-12 col-lg-12 col-md-12">
-               <div class="cart-heading">
-                 <h1>My Cart</h1>
+          <div class="col-md-1"></div>
+            <div class="col-sm-10 col-lg-10 col-md-10">
+               <div class="user-heading">
+                 <h2>My Cart</h2>
                </div>
+              <div class="col-md-1"></div>
             </div>
         </div>
+      </div>
+
+  </section>
        <!----------------------------------Item Info Table----------------------------------->
        <div class="row">
         <div class="col-xl-12 col-md-12 col-sm-12">
@@ -107,6 +115,7 @@ if(!isset($_SESSION['username'])){
           <div class="bkash-button">
             <a class="btn btn-default" href="checkout.php?price=<?php echo $_SESSION['total'] ?>" role="button">Checkout</a>
           </div>
+          <div class="gap"></div>
     </section>
 
 <?php include_once('footer.php');?>
